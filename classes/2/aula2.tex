@@ -1,0 +1,324 @@
+\documentclass[11pt, aspectratio=43]{beamer}
+
+\input{../commonconfig.tex}%
+\input{../forestthings.tex}%
+\input{../tablethings.tex}%
+
+\title{Aula 2: Sobre Kanjis}
+\author{Nanaro}
+\date[15/4/24]{15 de Abril de 2024}
+
+\begin{document}
+
+\maketitle
+\begin{frame}{Revisão rápida sobre a aula passada}%
+
+\begin{block}{\centering Tópicos}
+\begin{itemize}
+	\item<1-> Hiragana
+	\item<2-> Dígrafos (ゃ, ゅ e ょ)
+	\item<3-> Diacríticos (゛ e ゜)
+	\item<4-> Vogais longas (えい, おう ou ー, mas também ああ, いい, うう, ええ e おお)
+	\item<5-> Consoante geminada っ (ッ em Katakana)
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\intentionalcomm{
+\begin{frame}{main title}{subtitle}
+\begin{itemize}[<+->]
+    \item foo
+    \item bar \only<.>{baz}\only<+->{BAZ}
+    \item foobar
+\end{itemize}
+\end{frame}
+\begin{frame}{main title}{subtitle}
+\begin{itemize}[<+->]
+    \item foo
+    \item bar \alt<.>{baz}{BAZ}
+    \item foobar
+\end{itemize}
+\end{frame}
+}
+
+
+\begin{frame}{Hiragana}%
+
+\intentionalcomm{
+\begin{itemize}[<+->]
+    \item foo
+    \item bar \only<.>{
+		    baz
+	    }\only<+->{
+		    BAZ
+	    }
+    \item foobar
+\end{itemize}
+}
+
+%\colorlet{potatocolor}{transparent!0}
+%\only<2>{\colorlet{potatocolor}{Lavender}}
+
+\begin{columns}
+
+\begin{column}{.55\textwidth}%
+\only<1>{%
+\Large%
+\begin{block}{\centering Ordem}
+\centering%
+$\stackrel{\text{ごじゅうおん}}{\underset{\text{Cinquenta sons}}{\text{五十音}}}$
+\end{block}%
+\normalsize%
+}%
+\only<2>{%
+\ttfamily%
+%\intentionalcomm{
+\begin{table}[h]
+%\centering
+  \begin{tblr}{
+	colspec = {|c|c|c|c|},
+	column{2} = {SeaGreen},
+	column{3} = {SeaGreen},
+	column{4} = {SeaGreen},
+	row{2} = {transparent!0},
+	row{9} = {transparent!0},
+	row{11} = {transparent!0},
+	column{1} = {light-gray},
+	row{1} = {light-gray},
+  }%
+%\texttt{%
+\hline%
+	\textsf{Dígrafos} & ya & yu & yo\\ \hline
+	∅ & 　 & 　 & 　\\ \hline
+	k & きゃ & きゅ & きょ\\ \hline
+	s & しゃ & しゅ & しょ\\ \hline
+	t & ちゃ & ちゅ & ちょ\\ \hline
+	n & にゃ & にゅ & にょ\\ \hline
+	h & ひゃ & ひゅ & ひょ\\ \hline
+	m & みゃ & みゅ & みょ\\ \hline
+	y & 　 & 　 & 　\\ \hline
+	r & りゃ & りゅ & りょ\\ \hline
+	w & 　 & 　 & 　\\ \hline
+%}\\
+\end{tblr}
+\end{table}
+%}
+}
+\only<3>{%
+\Large%
+\begin{block}{\centering Diacríticos}
+\centering%
+$\stackrel{\text{だくてん}}{\text{濁点}}$
+\end{block}%
+\normalsize%
+}%
+\only<4>{%
+\Large%
+\begin{block}{\centering Diacríticos}
+\centering%
+$\stackrel{\text{はんだくてん}}{\text{半濁点}}$
+\end{block}%
+\normalsize%
+}%
+\end{column}
+
+\begin{column}{.45\textwidth}
+\ttfamily
+%\intentionalcomm{
+\begin{table}[h]
+%\centering
+  \begin{tblr}{
+	colspec = {|c|c|c|c|c|c|},
+	%column{3} = {SeaGreen},
+	column{1} = {light-gray},
+	row{1} = {light-gray},
+	%row{7} = {Lavender},
+	cell{1}{1} = {transparent!0},
+	%cell{1}{1} = {yellow7},
+	process = {
+		\styleColOnly{2}{3}{SeaGreen}
+		\styleRowOnly{2}{1}{light-gray}
+		\styleCellOnly{2}{1}{1}{transparent!0}
+		\styleCellOnly{2}{9}{3}{transparent!0}
+		\styleCellOnly{2}{11}{3}{transparent!0}
+%
+		\styleRowOnly{3}{3}{YellowOrange}
+		\styleRowOnly{3}{4}{YellowOrange}
+		\styleRowOnly{3}{5}{YellowOrange}
+		\styleRowOnly{3}{7}{YellowOrange}
+		\styleColOnly{3}{1}{light-gray}
+		\styleCellOnly{3}{1}{1}{Goldenrod}
+%
+		\styleRowOnly{4}{7}{Lavender}
+		\styleColOnly{4}{1}{light-gray}
+		\styleCellOnly{4}{1}{1}{Goldenrod}
+	},
+  }
+%\texttt{%
+\hline%
+	\alt<4>{゜}{\alt<3>{゛}{ん}} & a & i & u & e & o\\ \hline
+	∅ & \alt<3-4>{　}{あ} & \alt<3-4>{　}{い} & \alt<3-4>{　}{う} & \alt<3-4>{　}{え} & \alt<3-4>{　}{お}\\ \hline
+	k & \alt<4>{　}{\alt<3>{が}{か}} & \alt<4>{　}{\alt<3>{ぎ}{き}} & \alt<4>{　}{\alt<3>{ぐ}{く}} & \alt<4>{　}{\alt<3>{げ}{け}} & \alt<4>{　}{\alt<3>{ご}{こ}}\\ \hline
+	s & \alt<4>{　}{\alt<3>{ざ}{さ}} & \alt<4>{　}{\alt<3>{じ}{し}} & \alt<4>{　}{\alt<3>{ず}{す}} & \alt<4>{　}{\alt<3>{ぜ}{せ}} & \alt<4>{　}{\alt<3>{ぞ}{そ}}\\ \hline
+	t & \alt<4>{　}{\alt<3>{だ}{た}} & \alt<4>{　}{\alt<3>{ぢ}{ち}} & \alt<4>{　}{\alt<3>{づ}{つ}} & \alt<4>{　}{\alt<3>{で}{て}} & \alt<4>{　}{\alt<3>{ど}{と}}\\ \hline
+	n & \alt<3-4>{　}{な} & \alt<3-4>{　}{に} & \alt<3-4>{　}{ぬ} & \alt<3-4>{　}{ね} & \alt<3-4>{　}{の}\\ \hline
+	h & \alt<4>{ぱ}{\alt<3>{ば}{は}} & \alt<4>{ぴ}{\alt<3>{び}{ひ}} & \alt<4>{ぷ}{\alt<3>{ぶ}{ふ}} & \alt<4>{ぺ}{\alt<3>{べ}{へ}} & \alt<4>{ぽ}{\alt<3>{ぼ}{ほ}}\\ \hline
+	m & \alt<3-4>{　}{ま} & \alt<3-4>{　}{み} & \alt<3-4>{　}{む} & \alt<3-4>{　}{め} & \alt<3-4>{　}{も}\\ \hline
+	y & \alt<3-4>{　}{や} & 　 & \alt<3-4>{　}{ゆ} & 　 & \alt<3-4>{　}{よ}\\ \hline
+	r & \alt<3-4>{　}{ら} & \alt<3-4>{　}{り} & \alt<3-4>{　}{る} & \alt<3-4>{　}{れ} & \alt<3-4>{　}{ろ}\\ \hline
+	w & \alt<3-4>{　}{わ} & 　 & 　 & 　 & \alt<3-4>{　}{を}\\ \hline
+%}\\
+\end{tblr}
+\end{table}
+%}
+\end{column}
+\end{columns}
+
+
+\end{frame}
+
+\begin{frame}{Katakana}%
+
+\begin{columns}
+
+\begin{column}{.55\textwidth}%
+\only<1>{%
+\Large%
+\begin{block}{\centering Ordem}
+\centering%
+$\stackrel{\text{ごじゅうおん}}{\underset{\text{Cinquenta sons}}{\text{五十音}}}$
+\end{block}%
+\normalsize%
+}%
+\only<2>{%
+\ttfamily%
+%\intentionalcomm{
+\begin{table}[h]
+%\centering
+  \begin{tblr}{
+	colspec = {|c|c|c|c|},
+	column{2} = {SeaGreen},
+	column{3} = {SeaGreen},
+	column{4} = {SeaGreen},
+	row{2} = {transparent!0},
+	row{9} = {transparent!0},
+	row{11} = {transparent!0},
+	column{1} = {light-gray},
+	row{1} = {light-gray},
+  }%
+%\texttt{%
+\hline%
+	\textsf{Dígrafos} & ya & yu & yo\\ \hline
+	∅ & 　 & 　 & 　\\ \hline
+	k & キャ & キュ & キョ\\ \hline
+	s & シャ & シュ & ショ\\ \hline
+	t & チャ & チュ & チョ\\ \hline
+	n & ニャ & ニュ & ニョ\\ \hline
+	h & ヒャ & ヒュ & ヒョ\\ \hline
+	m & ミャ & ミュ & ミョ\\ \hline
+	y & 　 & 　 & 　\\ \hline
+	r & リゃ & リゅ & リょ\\ \hline
+	w & 　 & 　 & 　\\ \hline
+%}\\
+\end{tblr}
+\end{table}
+%}
+}
+\only<3>{%
+\Large%
+\begin{block}{\centering Diacríticos}
+\centering%
+$\stackrel{\text{だくてん}}{\text{濁点}}$
+\end{block}%
+\normalsize%
+}%
+\only<4>{%
+\Large%
+\begin{block}{\centering Diacríticos}
+\centering%
+$\stackrel{\text{はんだくてん}}{\text{半濁点}}$
+\end{block}%
+\normalsize%
+}%
+\end{column}
+
+\begin{column}{.45\textwidth}
+\ttfamily
+%\intentionalcomm{
+\begin{table}[h]
+%\centering
+  \begin{tblr}{
+	colspec = {|c|c|c|c|c|c|},
+	column{1} = {light-gray},
+	row{1} = {light-gray},
+	cell{1}{1} = {transparent!0},
+	process = {
+		\styleColOnly{2}{3}{SeaGreen}
+		\styleRowOnly{2}{1}{light-gray}
+		\styleCellOnly{2}{1}{1}{transparent!0}
+		\styleCellOnly{2}{9}{3}{transparent!0}
+		\styleCellOnly{2}{11}{3}{transparent!0}
+%
+		\styleRowOnly{3}{3}{YellowOrange}
+		\styleRowOnly{3}{4}{YellowOrange}
+		\styleRowOnly{3}{5}{YellowOrange}
+		\styleRowOnly{3}{7}{YellowOrange}
+		\styleColOnly{3}{1}{light-gray}
+		\styleCellOnly{3}{1}{1}{Goldenrod}
+%
+		\styleRowOnly{4}{7}{Lavender}
+		\styleColOnly{4}{1}{light-gray}
+		\styleCellOnly{4}{1}{1}{Goldenrod}
+	},
+  }
+%\texttt{%
+\hline%
+	\alt<4>{゜}{\alt<3>{゛}{ン}} & a & i & u & e & o\\ \hline
+	∅ & \alt<3-4>{　}{ア} & \alt<3-4>{　}{イ} & \alt<3-4>{　}{ウ} & \alt<3-4>{　}{エ} & \alt<3-4>{　}{オ}\\ \hline
+	k & \alt<4>{　}{\alt<3>{ガ}{カ}} & \alt<4>{　}{\alt<3>{ギ}{キ}} & \alt<4>{　}{\alt<3>{グ}{ク}} & \alt<4>{　}{\alt<3>{ゲ}{ケ}} & \alt<4>{　}{\alt<3>{ゴ}{コ}}\\ \hline
+	s & \alt<4>{　}{\alt<3>{ザ}{サ}} & \alt<4>{　}{\alt<3>{ジ}{シ}} & \alt<4>{　}{\alt<3>{ズ}{ス}} & \alt<4>{　}{\alt<3>{ゼ}{セ}} & \alt<4>{　}{\alt<3>{ゾ}{ソ}}\\ \hline
+	t & \alt<4>{　}{\alt<3>{ダ}{タ}} & \alt<4>{　}{\alt<3>{ヂ}{チ}} & \alt<4>{　}{\alt<3>{ヅ}{ツ}} & \alt<4>{　}{\alt<3>{デ}{テ}} & \alt<4>{　}{\alt<3>{ド}{ト}}\\ \hline
+	n & \alt<3-4>{　}{ナ} & \alt<3-4>{　}{ニ} & \alt<3-4>{　}{ヌ} & \alt<3-4>{　}{ネ} & \alt<3-4>{　}{ノ}\\ \hline
+	h & \alt<4>{パ}{\alt<3>{バ}{ハ}} & \alt<4>{ピ}{\alt<3>{ビ}{ヒ}} & \alt<4>{プ}{\alt<3>{ブ}{フ}} & \alt<4>{ペ}{\alt<3>{ベ}{ヘ}} & \alt<4>{ポ}{\alt<3>{ボ}{ホ}}\\ \hline
+	m & \alt<3-4>{　}{マ} & \alt<3-4>{　}{ミ} & \alt<3-4>{　}{ム} & \alt<3-4>{　}{メ} & \alt<3-4>{　}{モ}\\ \hline
+	y & \alt<3-4>{　}{ヤ} & 　 & \alt<3-4>{　}{ユ} & 　 & \alt<3-4>{　}{ヨ}\\ \hline
+	r & \alt<3-4>{　}{ラ} & \alt<3-4>{　}{リ} & \alt<3-4>{　}{ル} & \alt<3-4>{　}{レ} & \alt<3-4>{　}{ロ}\\ \hline
+	w & \alt<3-4>{　}{ワ} & 　 & 　 & 　 & \alt<3-4>{　}{ヲ}\\ \hline
+%}\\
+\end{tblr}
+\end{table}
+%}
+\end{column}
+\end{columns}
+
+
+\end{frame}
+
+\intentionalcomm{
+\begin{frame}{Hiragana}%
+\texttt{%
+　あいうえお\\
+　かきくけこ\\
+　さしすせそ\\
+　たちつてと\\
+　なにぬねの\\
+　はひふへほ\\
+　まみむめも\\
+　や　ゆ　よ\\
+　らりるれろ\\
+　わ　　　を\\
+ん}\\
+
+\end{frame}
+
+\begin{frame}{main title}{subtitle}
+\begin{itemize}[<+->]
+    \item foo
+    \item bar \only<.>{baz}\only<+->{BAZ}
+    \item foobar
+\end{itemize}
+\end{frame}
+}
+\end{document}
+

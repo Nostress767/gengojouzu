@@ -1,0 +1,13 @@
+\usepackage{tabularray}
+\UseTblrLibrary{functional}
+
+\prgNewFunction\styleRowOnly{mmm}{
+	\only<#1>{\rowSetStyle{#2}{#3}}
+}
+\prgNewFunction\styleColOnly{mmm}{
+	\only<#1>{\columnSetStyle{#2}{#3}}
+}
+\prgNewFunction\styleCellOnly{mmmm}{
+	\only<#1>{\cellSetStyle{#2}{#3}{#4}}
+}
+

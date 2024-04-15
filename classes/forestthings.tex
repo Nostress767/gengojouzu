@@ -1,0 +1,126 @@
+\usepackage{forest}
+
+
+\forestset{% https://tex.stackexchange.com/a/705635/
+  declare boolean={wild children}{0},
+  declare boolean={wild child}{0},
+  declare keylist={tame ones}{},
+  declare keylist={wild siblings}{},
+  declare boolean={wild leader}{0},
+  declare boolean register={wild tree},
+  wild tree=0,
+  append me/.style={append={!id=#1},do dynamics},
+  prepend me/.style={prepend={!id=#1},do dynamics},
+  wild phantom/.style={%
+    node options/.option=!u.node options,
+    content/.process={Ow{!u.content}{\phantom{##1}}},
+    child anchor/.option=!1.child anchor,
+    anchor/.option=!1.anchor,
+    parent anchor/.option=!1.parent anchor,
+    opacity=0,
+    no edge,
+  },
+  define long step={wild children by growth}{}{%
+    sort by={>O{grow}},sort'={filter={children}{>O{wild child}}}
+  },
+  do tameness/.style={%
+    where wild children={%
+      tempboola=0,
+      for children={%
+        if wild child={}{%
+          if tempboola={%
+            !u.tame ones+/.option=id,
+          }{%
+            tempboola,
+            replace by={%
+              [,
+                append,
+                delay={%
+                  if={>O_={!u.tame ones}{}}{}{%
+                    split option={!u.tame ones}{,}{append me},
+                  },
+                  wild phantom,
+                },
+              ]%                  
+            },
+          },
+        },
+      },            
+    }{},  
+  },
+  do wildness/.style={%
+    where wild children={%
+      tempcounta'=9999,
+      for wild children by growth={%
+        if={>OR= {grow}{tempcounta} }
+        {%
+          tempkeylista'=,
+          for children={%
+            tempkeylista+/.option=id,
+          },
+          for nodewalk={%
+            until={>O{wild leader}}{next},
+            if wild siblings={}{%
+              wild siblings/.register=tempkeylista
+            }{%
+              wild siblings+/.register=tempkeylista
+            }%
+          }{%
+          },
+          before packing={remove},
+        }{%
+          wild leader,
+          tempcounta/.option=grow,
+          before packing={%
+            if wild siblings={}{}{%
+              split option={wild siblings}{,}{prepend me},
+            },
+          },
+        },
+      },
+    }{},  
+  },
+  wild branching/.style={% 
+    if id=1{for tree={#1}}{%
+      !u.wild children,
+      delay={%
+        replace by={%
+          [,
+            wild child,
+            append,
+            delay={%
+              wild phantom,
+              for tree={#1},          
+            },
+          ]%
+        },
+      },
+      if wild tree={}{%
+        wild tree,
+        !root.before typesetting nodes={%
+          do tameness,
+          do wildness,
+        },
+        !root.before packing={%
+          delay={
+            where wild children={%
+              after packing node={%
+                for children={l'=0pt,s'=0pt},
+              },
+            }{},
+          },
+        },
+      },
+    },
+  },
+  wild branching/.default={},
+  subtree grow/.style={%
+    wild branching={grow=#1},
+  }, 
+  subtree grow'/.style={%
+    wild branching={grow'=#1},
+  },
+}
+
+\useforestlibrary{edges}
+ 
